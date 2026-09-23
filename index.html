@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#111914">
+  <meta name="description" content="Tank Simulator - محاكي دبابات ثلاثي الأبعاد من Vertex Games">
+  <title>Tank Simulator | Vertex Games</title>
+  <link rel="stylesheet" href="style.css?v=20260923-1">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" defer></script>
+  <script src="game.js?v=20260923-1" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🛡️</span>
+      <div>
+        <strong>Tank Simulator</strong>
+        <small>Vertex Games</small>
+      </div>
+    </div>
+    <button id="restartBtn" type="button">إعادة</button>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">3D TANK COMBAT</p>
+      <h1>Tank Simulator</h1>
+      <p>قد دبابتك، حرّك البرج، دمّر دبابات العدو، واصمد لأكبر عدد من الموجات.</p>
+    </section>
+
+    <section class="layout">
+      <aside class="panel">
+        <div class="stat"><span>الصحة</span><strong id="health">100</strong></div>
+        <div class="stat"><span>الذخيرة</span><strong id="ammo">8 / 8</strong></div>
+        <div class="stat"><span>الإصابات</span><strong id="kills">0</strong></div>
+        <div class="stat"><span>النقاط</span><strong id="score">0</strong></div>
+        <div class="stat"><span>الموجة</span><strong id="wave">1</strong></div>
+        <div class="stat"><span>السرعة</span><strong><span id="speed">0</span> km/h</strong></div>
+
+        <div class="meter-block">
+          <div class="meter-label"><span>درع الدبابة</span><b id="healthText">100%</b></div>
+          <div class="meter"><i id="healthFill"></i></div>
+        </div>
+
+        <div class="controls-help">
+          <p><b>W / S</b> حركة للأمام والخلف</p>
+          <p><b>A / D</b> دوران الدبابة</p>
+          <p><b>Q / E</b> تحريك البرج</p>
+          <p><b>Space</b> إطلاق</p>
+          <p><b>R</b> إعادة تعبئة</p>
+        </div>
+      </aside>
+
+      <section class="game-card">
+        <canvas id="gameCanvas" width="1100" height="650"></canvas>
+
+        <div id="crosshair" class="crosshair" aria-hidden="true">
+          <span></span><span></span>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <div id="overlay" class="overlay show">
+          <div class="overlay-box">
+            <span class="overlay-icon" id="overlayIcon">🪖</span>
+            <h2 id="overlayTitle">جاهز للمعركة؟</h2>
+            <p id="overlayText">دمّر دبابات العدو قبل أن يدمروا دبابتك.</p>
+            <button id="startBtn" type="button">ابدأ المعركة</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="mobile-controls" aria-label="أزرار تحكم للجوال">
+      <div class="mobile-drive">
+        <button data-key="KeyA">↶</button>
+        <button data-key="KeyW">↑</button>
+        <button data-key="KeyD">↷</button>
+        <button data-key="KeyS">↓</button>
+      </div>
+      <div class="mobile-actions">
+        <button data-key="KeyQ">برج ◀</button>
+        <button data-key="KeyE">برج ▶</button>
+        <button data-key="Space" class="fire">FIRE</button>
+        <button data-key="KeyR">RELOAD</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Vertex Games © 2026</footer>
+</body>
+</html>
